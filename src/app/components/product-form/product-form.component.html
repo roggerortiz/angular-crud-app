@@ -1,1 +1,42 @@
-<p>product-form works!</p>
+<div class="row g-0 justify-content-center align-items-center">
+  <div class="col-md-6">
+    <div class="card">
+      <div class="card-header">
+        <i class="fa-regular fa-plus"></i>
+        New Product
+      </div>
+      <div class="card-body">
+        <div class="product-form">
+          <div>
+            <label for="name" class="form-label">Name</label>
+            <input type="text" class="form-control form-control-sm" id="name" placeholder="Name">
+          </div>
+          <div>
+            <label for="description" class="form-label">Description</label>
+            <textarea class="form-control" id="description" rows="3" placeholder="Description"></textarea>
+          </div>
+          <div>
+            <label for="image" class="form-label">Image URL</label>
+            <input type="text" class="form-control form-control-sm" id="image" placeholder="Image Url">
+          </div>
+          <div>
+            <label for="price" class="form-label">Price</label>
+            <input type="number" step="0.1" min="0" class="form-control form-control-sm" id="price" placeholder="Price">
+          </div>
+        </div>
+      </div>
+      <div class="card-footer">
+        <div class="card-buttons">
+          <a class="btn btn-secondary btn-sm" routerLink="/products/list">
+            <i class="fa-solid fa-rotate-left"></i>
+            Cancel
+          </a>
+          <button class="btn btn-primary btn-sm">
+            <i class="fa-solid fa-floppy-disk"></i>
+            Save
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,9 +1,19 @@
 /* You can add global styles to this file, and also import other style files */
 
+textarea {
+  resize: none;
+}
+
 .fa-classic,
 .fa-regular,
 .fa-solid,
 .far,
 .fas {
   margin-right: 0.25rem;
+}
+
+.card-buttons {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: end;
 }
