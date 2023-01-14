@@ -2,26 +2,31 @@
   <div class="col-md-6">
     <div class="card">
       <div class="card-header">
-        <i class="fa-regular fa-plus"></i>
-        New Product
+        <i class="fa-regular fa-plus" *ngIf="!isEdit"></i>
+        <i class="fa-solid fa-pen-to-square" *ngIf="isEdit"></i>
+        {{!isEdit ? "New Product" : "Edit Product"}}
       </div>
       <div class="card-body">
         <div class="product-form">
           <div>
             <label for="name" class="form-label">Name</label>
-            <input type="text" class="form-control form-control-sm" id="name" placeholder="Name">
+            <input type="text" class="form-control form-control-sm" id="name" name="name" placeholder="Name"
+              [(ngModel)]="product.name" />
           </div>
           <div>
             <label for="description" class="form-label">Description</label>
-            <textarea class="form-control" id="description" rows="3" placeholder="Description"></textarea>
-          </div>
-          <div>
-            <label for="image" class="form-label">Image URL</label>
-            <input type="text" class="form-control form-control-sm" id="image" placeholder="Image Url">
+            <textarea class="form-control" id="description" name="description" rows="3" placeholder="Description"
+              [(ngModel)]="product.description"></textarea>
           </div>
           <div>
             <label for="price" class="form-label">Price</label>
-            <input type="number" step="0.1" min="0" class="form-control form-control-sm" id="price" placeholder="Price">
+            <input type="number" step="1" min="0" class="form-control form-control-sm" id="price" name="price"
+              placeholder="Price" [(ngModel)]="product.price" />
+          </div>
+          <div>
+            <label for="imageURL" class="form-label">Image URL</label>
+            <input type="text" class="form-control form-control-sm" id="imageURL" name="imageURL"
+              placeholder="Image URL" [(ngModel)]="product.imageURL" />
           </div>
         </div>
       </div>
@@ -31,7 +36,7 @@
             <i class="fa-solid fa-rotate-left"></i>
             Cancel
           </a>
-          <button class="btn btn-primary btn-sm">
+          <button class="btn btn-primary btn-sm" (click)="saveProduct()">
             <i class="fa-solid fa-floppy-disk"></i>
             Save
           </button>

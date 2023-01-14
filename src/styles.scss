@@ -4,6 +4,10 @@ textarea {
   resize: none;
 }
 
+.cursor-pointer {
+  cursor: pointer !important;
+}
+
 .fa-classic,
 .fa-regular,
 .fa-solid,
@@ -16,4 +20,5 @@ textarea {
   display: flex;
   gap: 0.5rem;
   justify-content: end;
+  align-items: center;
 }

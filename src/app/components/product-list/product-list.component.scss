@@ -3,3 +3,16 @@
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   gap: 1rem;
 }
+
+.products-wrapper .card .card-img-top {
+  display: grid;
+  place-content: center;
+  width: 100%;
+  height: 200px;
+  padding: 0.5rem;
+}
+
+.products-wrapper .card .card-img-top img {
+  width: 100%;
+  max-height: calc(200px - 1rem);
+}
