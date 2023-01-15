@@ -1,11 +1,19 @@
+/* Importing Font Awesone Free CSS file. */
+@import '~@fortawesome/fontawesome-free/css/all.min.css';
+
+/* Importing Bootstrap SCSS file. */
+@import '~bootstrap/scss/bootstrap';
+
 /* You can add global styles to this file, and also import other style files */
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
 
 textarea {
   resize: none;
-}
-
-.cursor-pointer {
-  cursor: pointer !important;
 }
 
 .fa-classic,
@@ -16,9 +24,46 @@ textarea {
   margin-right: 0.25rem;
 }
 
+.btn-close {
+  width: 0.6em;
+  height: 0.6em;
+  background-size: 0.6em;
+}
+
+.modal-header {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  padding: 0.75rem 1rem !important;
+}
+
+.modal-header .btn-close {
+  margin: 0 !important;
+  padding: 0.25rem !important;
+}
+
+.modal-title {
+  font-size: 1rem !important;
+}
+
+.modal-footer {
+  display: flex !important;
+  justify-content: flex-end !important;
+  align-items: center !important;
+  gap: 0.5rem !important;
+}
+
+.modal-footer>* {
+  margin: 0 !important;
+}
+
+.cursor-pointer {
+  cursor: pointer !important;
+}
+
 .card-buttons {
   display: flex;
   gap: 0.5rem;
-  justify-content: end;
+  justify-content: flex-end;
   align-items: center;
 }

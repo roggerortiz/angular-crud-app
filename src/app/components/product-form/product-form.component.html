@@ -1,47 +1,42 @@
-<div class="row g-0 justify-content-center align-items-center">
-  <div class="col-md-6">
-    <div class="card">
-      <div class="card-header">
-        <i class="fa-regular fa-plus" *ngIf="!isEdit"></i>
-        <i class="fa-solid fa-pen-to-square" *ngIf="isEdit"></i>
-        {{!isEdit ? "New Product" : "Edit Product"}}
-      </div>
-      <div class="card-body">
-        <div class="product-form">
-          <div>
-            <label for="name" class="form-label">Name</label>
-            <input type="text" class="form-control form-control-sm" id="name" name="name" placeholder="Name"
-              [(ngModel)]="product.name" />
-          </div>
-          <div>
-            <label for="description" class="form-label">Description</label>
-            <textarea class="form-control" id="description" name="description" rows="3" placeholder="Description"
-              [(ngModel)]="product.description"></textarea>
-          </div>
-          <div>
-            <label for="price" class="form-label">Price</label>
-            <input type="number" step="1" min="0" class="form-control form-control-sm" id="price" name="price"
-              placeholder="Price" [(ngModel)]="product.price" />
-          </div>
-          <div>
-            <label for="imageURL" class="form-label">Image URL</label>
-            <input type="text" class="form-control form-control-sm" id="imageURL" name="imageURL"
-              placeholder="Image URL" [(ngModel)]="product.imageURL" />
-          </div>
-        </div>
-      </div>
-      <div class="card-footer">
-        <div class="card-buttons">
-          <a class="btn btn-secondary btn-sm" routerLink="/products/list">
-            <i class="fa-solid fa-rotate-left"></i>
-            Cancel
-          </a>
-          <button class="btn btn-primary btn-sm" (click)="saveProduct()">
-            <i class="fa-solid fa-floppy-disk"></i>
-            Save
-          </button>
-        </div>
-      </div>
+<div class="modal-header">
+  <h4 class="modal-title fw-semibold" id="productModalLabel">
+    <i class="fa-regular fa-plus" *ngIf="!isEdit"></i>
+    <i class="fa-solid fa-pen-to-square" *ngIf="isEdit"></i>
+    {{!isEdit ? "New Product" : "Edit Product"}}
+  </h4>
+  <button type="button" class="btn-close" aria-label="Close" (click)="productModal.close()" tabindex="-1"></button>
+</div>
+<div class="modal-body">
+  <form>
+    <div>
+      <label for="name" class="form-label">Name</label>
+      <input type="text" class="form-control form-control-sm" tabindex="1" id="name" name="name" placeholder="Name"
+        [(ngModel)]="product.name" />
     </div>
-  </div>
+    <div>
+      <label for="description" class="form-label">Description</label>
+      <textarea class="form-control form-control-sm" tabindex="2" id="description" name="description" rows="3"
+        placeholder="Description" [(ngModel)]="product.description"></textarea>
+    </div>
+    <div>
+      <label for="price" class="form-label">Price</label>
+      <input type="number" step="1" min="0" class="form-control form-control-sm" tabindex="3" id="price" name="price"
+        placeholder="Price" [(ngModel)]="product.price" />
+    </div>
+    <div>
+      <label for="imageURL" class="form-label">Image URL</label>
+      <input type="text" class="form-control form-control-sm" tabindex="4" id="imageURL" name="imageURL"
+        placeholder="Image URL" [(ngModel)]="product.imageURL" />
+    </div>
+  </form>
+</div>
+<div class="modal-footer">
+  <button class="btn btn-primary btn-sm" tabindex="5" (click)="saveProduct()">
+    <i class="fa-solid fa-floppy-disk"></i>
+    Save
+  </button>
+  <button class="btn btn-secondary btn-sm" tabindex="6" (click)="productModal.close()">
+    <i class="fa-solid fa-rotate-left"></i>
+    Cancel
+  </button>
 </div>

@@ -54,13 +54,9 @@
               "src/manifest.webmanifest"
             ],
             "styles": [
-              "./node_modules/@fortawesome/fontawesome-free/css/all.min.css",
-              "./node_modules/bootstrap/dist/css/bootstrap.min.css",
               "src/styles.scss"
             ],
-            "scripts": [
-              "./node_modules/bootstrap/dist/js/bootstrap.min.js"
-            ],
+            "scripts": [],
             "serviceWorker": true,
             "ngswConfigPath": "ngsw-config.json"
           },

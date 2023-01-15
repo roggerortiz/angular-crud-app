@@ -9,14 +9,17 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { ProductListComponent } from './components/product-list/product-list.component';
 import { ProductFormComponent } from './components/product-form/product-form.component';
 import { HttpClientModule } from '@angular/common/http';
-import { FormsModule } from '@angular/forms'
+import { FormsModule } from '@angular/forms';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { HomeComponent } from './components/home/home.component'
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
     ProductListComponent,
-    ProductFormComponent
+    ProductFormComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
@@ -28,7 +31,8 @@ import { FormsModule } from '@angular/forms'
       // Register the ServiceWorker as soon as the application is stable
       // or after 30 seconds (whichever comes first).
       registrationStrategy: 'registerWhenStable:30000'
-    })
+    }),
+    NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent]

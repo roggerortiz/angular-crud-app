@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { NgbActiveModal, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { Product } from 'src/app/interfaces/product';
 import { ProductsService } from 'src/app/services/products.service';
 
@@ -10,7 +11,10 @@ import { ProductsService } from 'src/app/services/products.service';
 })
 export class ProductFormComponent implements OnInit {
 
+  @Input() id: string = "";
+
   isEdit: boolean = false;
+
   product: Product = {
     name: '',
     description: '',
@@ -20,16 +24,25 @@ export class ProductFormComponent implements OnInit {
 
   constructor(
     private readonly router: Router,
-    private readonly activatedRoute: ActivatedRoute,
-    private readonly productsService: ProductsService
+    private readonly productsService: ProductsService,
+    private readonly modalService: NgbModal,
+    public productModal: NgbActiveModal
   ) { }
 
   ngOnInit(): void {
-    const { id } = this.activatedRoute.snapshot.params
-
-    if (id) {
-      this.getProductById(id);
+    if (this.id) {
+      this.getProductById(this.id);
     }
+  }
+
+  open(content: any) {
+    this.modalService.open(content, {
+      ariaLabelledBy: 'productModalLabel',
+      backdrop: 'static',
+      centered: true,
+      keyboard: false,
+      scrollable: true,
+    });
   }
 
   getProductById(id: string) {
@@ -51,7 +64,7 @@ export class ProductFormComponent implements OnInit {
     if (this.isEdit || this.product._id) return;
 
     this.productsService.create(this.product).subscribe({
-      complete: () => this.router.navigate(['/products/list']),
+      complete: () => this.router.navigate(['/products']),
       error: (error: any) => console.log(error)
     });
   }
@@ -65,7 +78,7 @@ export class ProductFormComponent implements OnInit {
     delete this.product.createdAt;
 
     this.productsService.update(id, this.product).subscribe({
-      complete: () => this.router.navigate(['/products/list']),
+      complete: () => this.router.navigate(['/products']),
       error: (error: any) => console.log(error)
     });
   }

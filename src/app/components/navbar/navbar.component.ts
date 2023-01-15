@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { ProductFormComponent } from '../product-form/product-form.component';
 
 @Component({
   selector: 'app-navbar',
@@ -7,9 +9,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavbarComponent implements OnInit {
 
-  constructor() { }
+  constructor(private readonly modalService: NgbModal) { }
 
   ngOnInit(): void {
+  }
+
+  open() {
+    this.modalService.open(ProductFormComponent);
   }
 
 }
